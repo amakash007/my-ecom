@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {FaFilter} from "react-icons/fa"
 import FilterSidebar from '../components/Products/FilterSidebar';
 const CollectionPage = () => {
 
 const [products, setProducts] = useState([]);
+const sidebarRef = useRef(null);
 
 useEffect (() => {
     setTimeout(() => {
