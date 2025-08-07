@@ -71,7 +71,7 @@ useEffect (() => {
 
         {/* filter sidebar */}
         <FilterSidebar/>
-
+      <div></div>
     </div>
   )
 }
