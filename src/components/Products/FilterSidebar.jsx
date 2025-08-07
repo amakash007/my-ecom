@@ -87,9 +87,14 @@ const sizes = ["XS","S","M","L","XL","XXL"];
             }
             setFilters(newFilters);
             // console.log(newFilters);
+            };
+
+            const updateURLParams = (newFilters) =>{
+                const params = new URLSearchParams();
+                
             }
 
-  return (
+  return (  
     <div className='p-4'>
         <h3 className='text-xl font-medium text-gray-800 mb-4  '>Filter</h3>
 
