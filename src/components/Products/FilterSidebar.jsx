@@ -74,7 +74,19 @@ const sizes = ["XS","S","M","L","XL","XXL"];
   },      [searchParams]);
 
             const handleFilterChange = (e) => {
-                
+            const {name,value,checked,type} = e.target;
+            let newFilters = {...filters};
+            if(type === "checkbox"){
+                if(checked){
+                        newFilters[name] = [...(newFilters[name] || [] ),value]; //
+                } else{
+                    newFilters[name] = newFilters[name].filters((item ) =>item !==value)
+                }
+            } else{
+                newFilters[name] = value;
+            }
+            setFilters(newFilters);
+            // console.log(newFilters);
             }
 
   return (
@@ -87,6 +99,8 @@ const sizes = ["XS","S","M","L","XL","XXL"];
             {categories.map((category) =>(
         <div key={category} className='flex items-center mb-1 '>
             <input type="radio" name="category"
+                value={category}
+                onChange={handleFilterChange}
             className='mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300' />
          <span className="text-gray-700  ">{category}</span>
         </div>
@@ -94,12 +108,14 @@ const sizes = ["XS","S","M","L","XL","XXL"];
         </div> 
 
 
-         {/* Cateory Filter */}
+         {/* gender Filter */}
         <div className='mb-6'>
         <label className='block text-gray-600 font-medium mb-2 '>Gender</label>  
             {genders.map((gender) =>(
         <div key={gender} className='flex items-center mb-1 '>
             <input type="radio" name="gender"
+            value={gender}
+             onChange={handleFilterChange}
              className='mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300' />
          <span className="text-gray-700  ">{gender}</span>
         </div>
@@ -111,8 +127,10 @@ const sizes = ["XS","S","M","L","XL","XXL"];
              <label className='bloc text-gray-600 font-medium mb-2 '>Color</label>  
              <div className="flex flex-wrap gap-2">
                 {colors.map((color) =>(
-                 <button key={color} name='color' className='w-8 h-8 
-                    rounded-full border border-gray-300 cursor-pointer transtion
+                 <button key={color} name='color' 
+                 value={color}
+                 onClick={handleFilterChange}
+                 className='w-8 h-8   rounded-full border border-gray-300 cursor-pointer transtion
                     hover:scale-105 '
                     style={{backgroundColor:color.toLowerCase()}}
                     ></button>
@@ -128,6 +146,8 @@ const sizes = ["XS","S","M","L","XL","XXL"];
                 {sizes.map((size) => (
                     <div key={size} className='flex items-center mb-1 '>
                         <input type="checkbox" name="size" 
+                        value={size}
+                         onChange={handleFilterChange}
                         className="mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300"
                         />
                         <span className='text-gray-700'>{size}</span>
@@ -142,6 +162,8 @@ const sizes = ["XS","S","M","L","XL","XXL"];
                 {sizes.map((material) => (
                     <div key={material} className='flex items-center mb-1 '>
                         <input type="checkbox" name="material" 
+                        value={material}
+                         onChange={handleFilterChange}
                         className="mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300"
                         />
                         <span className='text-gray-700'>{material}</span>
@@ -156,6 +178,8 @@ const sizes = ["XS","S","M","L","XL","XXL"];
              {sizes.map((brand) => (
                 <div key={brand} className='flex items-center mb-1 '>
                     <input type="checkbox" name="brand" 
+                    value={brand}
+                     onChange={handleFilterChange}  
                     className="mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300"
                     />
                     <span className='text-gray-700'>{brand}</span>
