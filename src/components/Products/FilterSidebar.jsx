@@ -73,6 +73,10 @@ const sizes = ["XS","S","M","L","XL","XXL"];
         setPriceRange([0,params.maxPrice || 100]);
   },      [searchParams]);
 
+            const handleFilterChange = (e) => {
+                
+            }
+
   return (
     <div className='p-4'>
         <h3 className='text-xl font-medium text-gray-800 mb-4  '>Filter</h3>
