@@ -23,8 +23,12 @@ useEffect(() => {
   // add event listener 
   document.addEventListener("mousedown",handleClickOutside);
   // clean event lisner
-  document.removeEventListener("mousedown",handleClickOutside);
-});
+
+  return() =>{
+      document.removeEventListener("mousedown",handleClickOutside);
+  }
+
+}, []);
  
 useEffect (() => {
     setTimeout(() => {
