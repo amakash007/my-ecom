@@ -25,7 +25,7 @@ const cart ={
 const Checkout = () => {
 
     const navigate = useNavigate();
-    const [checkoutId,setCheckoutId] = useState(null)
+    const [checkoutId,setCheckoutId] = useState("")
     const [shippingAddress, setShippingAdress] = useState({
         firstName:"",
         lastName:"",
@@ -160,9 +160,9 @@ const handlePaymentSucess = (details) =>{
                 <div>
                     <h3 className='text-lg mb-4' >Pay With payPal</h3>
                     {/* paypal component */}
-                        <PayPalButton amount={100}onSucess={handlePaymentSucess}
+                        <PayPalButton amount={100}
+                        onSucess={handlePaymentSucess}
                         onError={(err) => alert=("Payment failed. Try Again.")} />
-
                 </div>
             )}
         </div>
