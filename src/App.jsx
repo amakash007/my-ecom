@@ -12,6 +12,7 @@ import Checkout from './components/Cart/Checkout'
 import OrderConfirmationPage from './pages/OrderConfirmationPage' 
 import OrderDetailsPage from './pages/OrderDetailsPage'
 import MyOrderPage from './pages/MyOrderPage'
+import AdminLayout from './components/Admin/AdminLayout'
 
 
 const App = () => {
@@ -33,7 +34,8 @@ const App = () => {
 
         </Route> 
 
-      <Route>{/* Admin layout */}</Route> 
+      <Route path='/admin' element={<AdminLayout/>}>
+        {/* Admin layout */}</Route> 
     </Routes>
 
     </BrowserRouter>
