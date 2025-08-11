@@ -1,0 +1,186 @@
+// import React from 'react'
+// import { Link, NavLink } from 'react-router-dom'
+
+// const AdminSidebar = () => {
+//   return (
+//     <div className='p-6'>
+//         <div className='mb-6'>
+//             <Link to="/admin" className='text-2xl font-medium'>
+//                 Rabbit
+//             </Link>
+//         </div>
+//         <h2 className='text-xl font-medium mb-6 text-5'>Admin Dashboard</h2>
+//         <nav className='flex flex-col space-y-2'>
+//               <NavLink
+//           to="/admin/users"
+//           className={({ isActive }) =>
+//             isActive
+//               ? "bg-gray-700 text-white py-3 px-4 rounded flex items-center space-x-2"
+//               : "text-gray-300 hover:bg-gray-700 hover:text-white py-3 px-4 rounded flex items-center space-x-2"
+//           }
+//         >
+               
+            
+//             </NavLink>
+//         </nav>
+//     </div>
+//   )
+// }
+
+
+// import React from 'react'
+// import { Link, NavLink } from 'react-router-dom'
+// import { FaBoxOpen, FaUsers } from "react-icons/fa";
+
+// const AdminSidebar = () => {
+//   return (
+//     <div className='p-6'>
+//       <div className='mb-6'>
+//         <Link to="/admin" className='text-2xl font-medium'>
+//           Rabbit
+//         </Link>
+//       </div>
+//       <h2 className='text-xl font-medium mb-6 '>Admin Dashboard</h2>
+//       <nav className='flex flex-col space-y-2'>
+//         <NavLink
+//           to="/admin/users"
+//           className={({ isActive }) =>
+//             isActive
+//               ? "bg-gray-700 text-white py-3 px-4 rounded flex items-center space-x-2"
+//               : "text-gray-300 hover:bg-gray-700 hover:text-white py-3 px-4 rounded flex items-center space-x-2"
+//           }
+//         >
+//           <FaUser />
+//           <span>Users</span>
+//         </NavLink>
+
+//         <NavLink
+//           to="/admin/products"
+//           className={({ isActive }) =>
+//             isActive
+//               ? "bg-gray-700 text-white py-3 px-4 rounded flex items-center space-x-2"
+//               : "text-gray-300 hover:bg-gray-700 hover:text-white py-3 px-4 rounded flex items-center space-x-2"
+//           }
+//         >
+//           <FaBoxOpen />
+//           <span>Products</span>
+//         </NavLink>
+
+//         <NavLink
+//           to="/admin/users"
+//           className={({ isActive }) =>
+//             isActive
+//               ? "bg-gray-700 text-white py-3 px-4 rounded flex items-center space-x-2"
+//               : "text-gray-300 hover:bg-gray-700 hover:text-white py-3 px-4 rounded flex items-center space-x-2"
+//           }
+//         >
+//           <FaUsers />
+//           <span>Users</span>
+//         </NavLink>
+
+//         <NavLink
+//           to="/admin/users"
+//           className={({ isActive }) =>
+//             isActive
+//               ? "bg-gray-700 text-white py-3 px-4 rounded flex items-center space-x-2"
+//               : "text-gray-300 hover:bg-gray-700 hover:text-white py-3 px-4 rounded flex items-center space-x-2"
+//           }
+//         >
+//           <FaUsers />
+//           <span>Users</span>
+//         </NavLink>
+
+        
+//       </nav>
+//     </div>
+//   )
+// }
+
+// export default AdminSidebar
+
+
+import React from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { FaBoxOpen, FaUsers, FaUser, FaClipboard, FaClipboardList, FaStore, FaSignOutAlt } from "react-icons/fa";
+
+const AdminSidebar = () => {
+const navigate = useNavigate();
+const handleLogout =() =>{
+        navigate("/");
+}
+
+  return (
+    <div className='p-6 bg-gray-900 text-white min-h-screen'>
+      <div className='mb-6'>
+        <Link to="/admin" className='text-2xl font-bold tracking-wide'>
+          Rabbit
+        </Link>
+      </div>
+
+      <h2 className='text-lg font-semibold mb-6'>Admin Dashboard</h2>
+
+      <nav className='flex flex-col space-y-2'>
+        <NavLink
+          to="/admin/users"
+          className={({ isActive }) =>
+            isActive
+              ? "bg-gray-700 text-white py-3 px-4 rounded flex items-center space-x-2"
+              : "text-gray-300 hover:bg-gray-700 hover:text-white py-3 px-4 rounded flex items-center space-x-2"
+          }
+        >
+          <FaUser />
+          <span>Users</span>
+        </NavLink>
+
+        <NavLink
+          to="/admin/products"
+          className={({ isActive }) =>
+            isActive
+              ? "bg-gray-700 text-white py-3 px-4 rounded flex items-center space-x-2"
+              : "text-gray-300 hover:bg-gray-700 hover:text-white py-3 px-4 rounded flex items-center space-x-2"
+          }
+        >
+          <FaBoxOpen />
+          <span>Products</span>
+        </NavLink>
+
+        <NavLink
+          to="/admin/orders"
+          className={({ isActive }) =>
+            isActive
+              ? "bg-gray-700 text-white py-3 px-4 rounded flex items-center space-x-2"
+              : "text-gray-300 hover:bg-gray-700 hover:text-white py-3 px-4 rounded flex items-center space-x-2"
+          }
+        >
+          <FaClipboardList />
+          <span>Orders</span>
+        </NavLink>
+
+          <NavLink
+          to="/admin/orders"
+          className={({ isActive }) =>
+            isActive
+              ? "bg-gray-700 text-white py-3 px-4 rounded flex items-center space-x-2"
+              : "text-gray-300 hover:bg-gray-700 hover:text-white py-3 px-4 rounded flex items-center space-x-2"
+          }
+        >
+          <FaStore />
+          <span>Shop</span>
+        </NavLink>
+
+         <div className="">
+            <button onClick={handleLogout} 
+            className='w-full bg-red-500 hover:bg-red-500 text-white py-2 px-4 rounded flex items-center
+            justify-center space-x-2'>
+                <FaSignOutAlt />
+                <span>Logout</span>
+            </button>
+         </div>
+      </nav>
+    </div>
+  );
+};
+
+export default AdminSidebar;
+
+
