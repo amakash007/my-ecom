@@ -106,12 +106,20 @@ const OrderDetailsPage = () => {
                                         className='text-blue-500 hover:underline' >
                                         {item.name}
                                         </Link>
-                                     </td>    
+                                     </td> 
+                                     <td className='py-2 px-4 '>${item.price}</td>   
+                                     <td className='py-2 px-4 '>${item.quantity}</td>  
+                                     <td className='py-2 px-4 '>${item.price * item.quantity}</td>  
                                  </tr>
                             ))}
                         </tbody>
                     </table>
+
                 </div>
+                {/* back to border link */}
+                <Link to='/my-orders' className='text-blue-500 hover:underline'>
+                 Back to my Orders 
+                </Link>
             </div>
         )}
     </div>

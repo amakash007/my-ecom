@@ -11,7 +11,7 @@ useEffect(() => {
             {
                 _id:"1234",
                 createdAt: new Date(),
-                shippingAddress:{city : "Maharashtra",country:"INDIA"},
+                shippingAddress:{city : "New York",country:"USA"},
                 orderItem:[
                     {
                          name:"product 1",
