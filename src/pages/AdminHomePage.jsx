@@ -1,8 +1,17 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 const AdminHomePage = () => {
 
     const orders = [
+        {
+            _id:12345,
+            user:{
+                name:"John Doe",
+            },
+            totalPrice:100,
+            status:"processing",
+        },
         {
             _id:12345,
             user:{
@@ -24,10 +33,49 @@ const AdminHomePage = () => {
              <div className="p-4 shadow rounded-lg ">
                 <h2 className='text-xl font-semibold '>Total Orders</h2>
                 <p className='text-2xl '>200</p>
+                <Link to="/admin/orders" className="text-blue-500 hover:underline">
+                Manage Orders
+                </Link>
             </div>
              <div className="p-4 shadow rounded-lg ">
-                <h2 className='text-xl font-semibold '>Revenue</h2>
-                <p className='text-2xl '>$1000</p>
+                <h2 className='text-xl font-semibold '>Total Products</h2>
+                <p className='text-2xl '>100</p>
+                <Link to="/admin/products" className="text-blue-500 hover:underline">
+                Manage Products
+                </Link>
+            </div>
+        </div>
+        <div className="mt-6">
+            <h2 className='text-2xl font-semibold mb-4'> Recent Orders</h2>
+            <div className="overflow-x-auto">
+                 <table className='min-w-full text-left text-gray-500'>
+                        <thead className='bg-gray-100 text-xs uppercase text-gray-700'>
+                            <tr>
+                                <th className='py-3 px4'>ORDER ID</th>
+                                <th className='py-3 px4'>USER </th>
+                                <th className='py-3 px4'>TOTAL PRICE</th>
+                                <th className='py-3 px4'>STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {orders.length > 0 ? (
+                                orders.map((order) => (
+                                    <tr key={order._id} className='border-b hover:bg-gray-50 cursor-pointer'>
+                                        <td className='p-4'>{order._id}</td>
+                                         <td className='p-4'>{order.user.name}</td>
+                                        <td className='p-4'>{order.totalPrice}</td>
+                                        <td className='p-4'>{order.status}</td>
+                                    </tr>
+                                ))
+                            ) : (
+                                <tr>
+                                    <td colSpan={4} className='p-4 text-center text-gray-50'>
+                                        No recent orders found.
+                                    </td>
+                                </tr>
+                            )}
+                        </tbody>
+                 </table>
             </div>
         </div>
     </div>
