@@ -8,7 +8,6 @@ const FeaturedCollection = () => {
     <section className='py-16 px-4 lg:px-20'>
             <div className='container mx-auto flex flex-col-reverse lg:flex-row items-center bg-green-50
             rounded-3xl '>
-
                     {/* {Left content} */}
                 <div className='lg:w-1/2 p-8 text-center lg:text-left'>
                 <h2 className='text-lg font-semibold text-gray-700 mb-2'>
@@ -35,7 +34,7 @@ const FeaturedCollection = () => {
                     </div>
             </div>
     </section>
-  )
+  );
 }
 
 export default FeaturedCollection
